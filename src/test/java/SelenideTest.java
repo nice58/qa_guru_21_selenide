@@ -22,7 +22,8 @@ public class SelenideTest {
         $("#query-builder-test").setValue("selenide").pressEnter();
         $$("[data-testid='results-list']").first().$("a").click();
         $("#wiki-tab").click();
-        $(".markdown-body").shouldHave(text("Soft assertions"));
+        $("#wiki-pages-filter").setValue("SoftAssertions");
+        $("#wiki-pages-box").shouldHave(text("SoftAssertions"));
         $(byText("Soft assertions")).click();
         $(".markdown-body").$(byText("3. Using JUnit5 extend test class:")).sibling(0).shouldHave(text("@ExtendWith({SoftAssertsExtension.class})\n" +
                 "class Tests {\n" +
